@@ -1,0 +1,108 @@
+import { Flame, Drumstick, EggFried, UtensilsCrossed } from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import { AnimateIn } from "@/components/animate-in";
+
+interface MenuItem {
+  name: string;
+  price: string;
+}
+
+interface MenuGroup {
+  icon: LucideIcon;
+  title: string;
+  items: MenuItem[];
+}
+
+const menuGroups: MenuGroup[] = [
+  {
+    icon: Flame,
+    title: "Grilled & Main",
+    items: [
+      { name: "Tuna Panga (300–500 g)", price: "₱169" },
+      { name: "Tuna Panga (500–800 g)", price: "₱240" },
+      { name: "Grilled Pork Belly", price: "₱120" },
+      { name: "Chicken Inasal", price: "₱120" },
+    ],
+  },
+  {
+    icon: Drumstick,
+    title: "Sisig & Chicken",
+    items: [
+      { name: "Sisig with Rice", price: "₱99" },
+      { name: "Sisig Platter", price: "₱159" },
+      { name: "Chicken Platter", price: "₱249" },
+      { name: "Fries Chicken", price: "₱129" },
+      { name: "Chicken Bufafa", price: "₱99" },
+      { name: "Chicken Pamasin", price: "₱99" },
+      { name: "Chicken Creamy Mushroom", price: "₱99" },
+    ],
+  },
+  {
+    icon: EggFried,
+    title: "Silog Meals",
+    items: [
+      { name: "Hamsilog", price: "₱79" },
+      { name: "Longsilog", price: "₱79" },
+      { name: "Cornsilog", price: "₱89" },
+      { name: "Pattysilog", price: "₱69" },
+      { name: "Hotsilog", price: "₱59" },
+    ],
+  },
+];
+
+function MenuGroupCard({ icon: Icon, title, items }: MenuGroup) {
+  return (
+    <div className="flex flex-col bg-card rounded-2xl lg:rounded-[20px] shadow-card overflow-hidden">
+      <div className="flex items-center gap-3 px-4 sm:px-6 py-4 sm:py-5 bg-gradient-to-r from-[#4A2C1F] to-[#2D1A12]">
+        <Icon className="w-5 h-5 sm:w-7 sm:h-7 text-accent" />
+        <h3 className="text-base sm:text-xl font-bold text-accent">{title}</h3>
+      </div>
+      <div className="flex flex-col px-4 sm:px-6 py-2 pb-3 sm:pb-4">
+        {items.map((item, i) => (
+          <div
+            key={item.name}
+            className={`flex items-center justify-between py-3 sm:py-3.5 ${
+              i < items.length - 1 ? "border-b border-accent/[0.08]" : ""
+            }`}
+          >
+            <span className="text-sm sm:text-base font-medium text-foreground">
+              {item.name}
+            </span>
+            <span className="text-sm sm:text-[17px] font-bold text-accent shrink-0 ml-3">
+              {item.price}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export function FoodMenu() {
+  return (
+    <section id="menu" className="py-12 lg:py-20 px-5 sm:px-8 lg:px-[120px] max-w-[1440px] mx-auto">
+      <div className="flex flex-col items-center gap-6 lg:gap-8">
+        <AnimateIn>
+          <div className="flex flex-col items-center gap-3">
+            <UtensilsCrossed className="w-7 h-7 sm:w-9 sm:h-9 text-accent" />
+            <div className="w-16 sm:w-20 h-[3px] bg-accent rounded-sm" />
+            <h2 className="text-3xl sm:text-4xl lg:text-[42px] font-extrabold tracking-tight text-foreground text-center">
+              Our Menu
+            </h2>
+            <p className="text-sm sm:text-[17px] text-muted-foreground text-center max-w-[620px] leading-relaxed">
+              From sizzling sisig to hearty silog meals — real Filipino flavors at
+              honest prices.
+            </p>
+          </div>
+        </AnimateIn>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 w-full">
+          {menuGroups.map((g, i) => (
+            <AnimateIn key={g.title} delay={i * 150}>
+              <MenuGroupCard {...g} />
+            </AnimateIn>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

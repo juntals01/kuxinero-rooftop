@@ -1,0 +1,71 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-outfit);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+
+  --shadow-card: 0 0 20px rgba(26,25,24,0.09);
+  --shadow-card-accent: 0 4px 20px rgba(200,155,60,0.09);
+  --shadow-button: 0 4px 16px rgba(200,155,60,0.27);
+  --shadow-nav: 0 4px 24px rgba(0,0,0,0.12);
+  --shadow-hero-card: 0 8px 24px rgba(200,155,60,0.19);
+  --shadow-text: 0 2px 12px rgba(0,0,0,0.4);
+}
+
+:root {
+  --radius: 0.625rem;
+  --background: #F8F3EE;
+  --foreground: #1C1C1C;
+  --card: #FFFFFF;
+  --card-foreground: #1C1C1C;
+  --popover: #FFFFFF;
+  --popover-foreground: #1C1C1C;
+  --primary: #4A2C1F;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F8F3EE;
+  --secondary-foreground: #4A2C1F;
+  --muted: #F8F3EE;
+  --muted-foreground: #777777;
+  --accent: #C89B3C;
+  --accent-foreground: #4A2C1F;
+  --destructive: #FF4444;
+  --border: rgba(200,155,60,0.25);
+  --input: #FAFAF8;
+  --ring: #C89B3C;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans;
+  }
+}
