@@ -2,4 +2,5 @@
 .cursor/
 node_modules/
 .next/
+package-lock.json
 docs/images/generated-*
