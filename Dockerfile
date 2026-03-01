@@ -1,14 +1,12 @@
-FROM node:22-alpine AS builder
+FROM node:22-slim AS builder
 
 WORKDIR /app
 
-COPY web/package.json web/package-lock.json ./
-RUN npm install
-
 COPY web/ ./
+RUN npm install
 RUN npm run build
 
-FROM node:22-alpine AS runner
+FROM node:22-slim AS runner
 
 WORKDIR /app
 
