@@ -58,13 +58,14 @@ export function Hero() {
   return (
     <section ref={sectionRef} className="relative w-full min-h-[500px] md:min-h-[550px] lg:h-[600px] overflow-hidden">
       <div
-        className="absolute inset-[-60px] w-full h-[calc(100%+120px)]"
+        className="absolute -top-[60px] -left-[20px] -right-[20px] -bottom-[60px]"
         style={{ transform: `translateY(${scrollY * 0.35}px)` }}
       >
         <Image
           src="/images/fire-banner.png"
           alt="Kuxinero Rooftop ambiance"
           fill
+          sizes="110vw"
           className="object-cover"
           priority
         />
