@@ -6,14 +6,7 @@ import Link from "next/link";
 import { MapPin, UtensilsCrossed, ChevronLeft, ChevronRight } from "lucide-react";
 import { Navbar } from "./navbar";
 import { cn } from "@/lib/utils";
-
-const dishes = [
-  { name: "Grilled Tuna Panga", price: "₱169", image: "/images/panga.jpg", badge: "Best Seller" },
-  { name: "Grilled Pork Belly", price: "₱120", image: "/images/pork-belly.jpg" },
-  { name: "Sizzling Sisig", price: "₱99", image: "/images/sisig.jpg", badge: "Best Seller" },
-  { name: "Chicken Bufafa", price: "₱99", image: "/images/chicken-bufafa.jpg" },
-  { name: "Silogan Meals", price: "from ₱59", image: "/images/menu.jpg" },
-];
+import { defaultContent, type SiteContent } from "@/lib/site-content-shared";
 
 // Entrance animation helper — uses tw-animate-css utilities.
 // Elements start as opacity-0 (SSR-safe), then animate in on mount.
@@ -24,9 +17,10 @@ function enter(delay: string = "") {
   );
 }
 
-export function Hero() {
+export function Hero({ hero = defaultContent.hero }: { hero?: SiteContent["hero"] }) {
   const [active, setActive] = useState(0);
   const [mounted, setMounted] = useState(false);
+  const dishes = hero.dishes ?? defaultContent.hero.dishes;
   const total = dishes.length;
   const sectionRef = useRef<HTMLElement>(null);
   const [scrollY, setScrollY] = useState(0);
@@ -119,7 +113,7 @@ export function Hero() {
                 mounted ? enter("[animation-delay:0ms]") : "opacity-0"
               )}
             >
-              Rooftop Vibes.
+              {hero.title1}
             </h1>
             <h1
               className={cn(
@@ -127,7 +121,7 @@ export function Hero() {
                 mounted ? enter("[animation-delay:120ms]") : "opacity-0"
               )}
             >
-              Real Filipino Flavor.
+              {hero.title2}
             </h1>
           </div>
 
@@ -137,7 +131,7 @@ export function Hero() {
               mounted ? enter("[animation-delay:240ms]") : "opacity-0"
             )}
           >
-            Grilled Tuna • Pork Belly • Sizzling Sisig • Silogan Meals
+            {hero.subtitle}
           </p>
 
           <p
@@ -146,7 +140,7 @@ export function Hero() {
               mounted ? enter("[animation-delay:340ms]") : "opacity-0"
             )}
           >
-            Affordable meals for the Cebuano community.
+            {hero.description}
           </p>
 
           <p
@@ -155,7 +149,7 @@ export function Hero() {
               mounted ? enter("[animation-delay:400ms]") : "opacity-0"
             )}
           >
-            Tabunok, Talisay • Beside St. Joseph the Worker Parish Church
+            {hero.location}
           </p>
 
           <div

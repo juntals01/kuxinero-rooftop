@@ -3,6 +3,7 @@ import { MapPin, Navigation, Facebook, Phone } from "lucide-react";
 import Link from "next/link";
 import { PageNavbar } from "@/components/sections/page-navbar";
 import { Footer } from "@/components/sections/footer";
+import { getContent } from "@/lib/site-content";
 
 export const metadata: Metadata = {
   title: "Location",
@@ -10,7 +11,8 @@ export const metadata: Metadata = {
     "Find Kuxinero Rooftop — located along St. Joseph the Worker Parish Church, Cebu South Road, Tabunok, Talisay, Cebu. Easy access from Tabunok Flyover.",
 };
 
-export default function LocationPage() {
+export default async function LocationPage() {
+  const content = await getContent();
   return (
     <main className="flex flex-col min-h-screen bg-background">
       <PageNavbar />
@@ -24,7 +26,7 @@ export default function LocationPage() {
           <div className="flex flex-col lg:flex-row gap-8 lg:gap-10 w-full">
             <div className="flex-1 h-[300px] sm:h-[350px] lg:h-[400px] rounded-[20px] bg-[#D3D3D3] overflow-hidden">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3925.6!2d123.8!3d10.25!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDE1JzAwLjAiTiAxMjPCsDQ4JzAwLjAiRQ!5e0!3m2!1sen!2sph!4v1"
+                src={content.location.mapEmbedUrl}
                 className="w-full h-full border-0"
                 allowFullScreen
                 loading="lazy"
@@ -42,8 +44,7 @@ export default function LocationPage() {
                   </h3>
                 </div>
                 <p className="text-sm text-muted-foreground leading-relaxed pl-8">
-                  Along St. Joseph the Worker Parish Church, Cebu South Road,
-                  Purok Lopez Jaena, Barangay Tabunoc, Talisay, Philippines
+                  {content.location.address}
                 </p>
               </div>
 
@@ -61,7 +62,7 @@ export default function LocationPage() {
 
               <div className="flex flex-col gap-3 mt-2">
                 <Link
-                  href="https://maps.google.com"
+                  href={content.location.mapsLink}
                   target="_blank"
                   className="flex items-center justify-center h-12 rounded-xl bg-accent text-primary font-semibold text-[15px] hover:brightness-110 transition"
                 >
@@ -75,7 +76,7 @@ export default function LocationPage() {
                   Call Now (Coming Soon)
                 </button>
                 <Link
-                  href="https://www.facebook.com/profile.php?id=61587210681219"
+                  href={content.general.facebookUrl}
                   target="_blank"
                   className="flex items-center justify-center gap-2 h-12 rounded-xl border-2 border-accent text-accent font-medium text-[15px] hover:bg-accent/10 transition"
                 >
@@ -88,7 +89,7 @@ export default function LocationPage() {
         </div>
       </section>
 
-      <Footer />
+      <Footer general={content.general} />
     </main>
   );
 }

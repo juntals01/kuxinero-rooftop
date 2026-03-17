@@ -1,29 +1,6 @@
 import { Star, StarHalf, MessageCircle } from "lucide-react";
 import { AnimateIn } from "@/components/animate-in";
-
-interface Review {
-  name: string;
-  text: string;
-  rating: number;
-}
-
-const reviews: Review[] = [
-  {
-    name: "Maria C.",
-    text: "Best sisig in Talisay! The rooftop vibe is so chill and affordable. We always come back with our barkada.",
-    rating: 4,
-  },
-  {
-    name: "John Rey D.",
-    text: "Grilled tuna panga is a must-try. Huge serving for the price. Kids loved the silogan meals too!",
-    rating: 4,
-  },
-  {
-    name: "Cherry L.",
-    text: "Love the ambiance at night. Very relaxing with great food. The chicken bufafa is our favorite!",
-    rating: 3,
-  },
-];
+import { defaultContent, type Review, type SiteContent } from "@/lib/site-content-shared";
 
 function Stars({ rating }: { rating: number }) {
   return (
@@ -38,7 +15,9 @@ function Stars({ rating }: { rating: number }) {
   );
 }
 
-export function SocialProof() {
+export function SocialProof({ social = defaultContent.socialProof }: { social?: SiteContent["socialProof"] }) {
+  const rating = social.rating ?? defaultContent.socialProof.rating;
+  const reviews: Review[] = social.reviews ?? defaultContent.socialProof.reviews;
   return (
     <section className="py-10 lg:py-16 px-5 sm:px-8 lg:px-[120px] max-w-[1440px] mx-auto">
       <div className="flex flex-col items-center gap-6 lg:gap-8">
@@ -51,7 +30,7 @@ export function SocialProof() {
         <AnimateIn delay={100}>
           <div className="flex items-center gap-3 sm:gap-4">
             <span className="text-5xl sm:text-[64px] font-extrabold text-accent leading-none">
-              3.7
+              {rating.toFixed(1)}
             </span>
             <div className="flex flex-col gap-1.5">
               <div className="flex gap-1">
@@ -62,7 +41,7 @@ export function SocialProof() {
                 <Star className="w-4 h-4 sm:w-5 sm:h-5 text-accent/30" />
               </div>
               <p className="text-xs sm:text-sm text-muted-foreground">
-                Based on Facebook reviews
+                {social.ratingLabel}
               </p>
             </div>
           </div>

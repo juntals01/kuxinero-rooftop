@@ -1,50 +1,8 @@
 import Image from "next/image";
 import { AnimateIn } from "@/components/animate-in";
+import { defaultContent, type SignatureDish } from "@/lib/site-content-shared";
 
-interface DishCardProps {
-  image: string;
-  name: string;
-  price: string;
-  description: string;
-  badge?: string;
-}
-
-const dishes: DishCardProps[] = [
-  {
-    image: "/images/panga.jpg",
-    name: "Grilled Tuna Panga",
-    price: "₱169",
-    description: "Fresh tuna jaw grilled over charcoal, served sizzling with soy-calamansi dip.",
-    badge: "Best Seller",
-  },
-  {
-    image: "/images/pork-belly.jpg",
-    name: "Grilled Pork Belly",
-    price: "₱120",
-    description: "Thick-cut pork belly, smoky and tender, paired with vinegar dip and rice.",
-  },
-  {
-    image: "/images/sisig.jpg",
-    name: "Sizzling Sisig",
-    price: "₱99",
-    description: "Chopped pork face seasoned with calamansi and chili, topped with egg on a hot plate.",
-    badge: "Best Seller",
-  },
-  {
-    image: "/images/chicken-bufafa.jpg",
-    name: "Chicken Bufafa",
-    price: "₱99",
-    description: "Kuxinero's signature crispy chicken tossed in a tangy buffalo-inspired sauce.",
-  },
-  {
-    image: "/images/menu.jpg",
-    name: "Silogan Meals",
-    price: "from ₱59",
-    description: "Classic Filipino breakfast meals — egg, garlic rice, and your choice of viand.",
-  },
-];
-
-function DishCard({ image, name, price, description, badge }: DishCardProps) {
+function DishCard({ image, name, price, description, badge }: SignatureDish) {
   return (
     <div className="flex flex-col bg-card rounded-2xl lg:rounded-3xl shadow-card overflow-hidden">
       <div className="relative w-full h-[160px] sm:h-[180px]">
@@ -68,7 +26,7 @@ function DishCard({ image, name, price, description, badge }: DishCardProps) {
   );
 }
 
-export function SignatureDishes() {
+export function SignatureDishes({ dishes = defaultContent.signatureDishes }: { dishes?: SignatureDish[] }) {
   return (
     <section className="py-10 lg:py-16 px-5 sm:px-8 lg:px-[120px] max-w-[1440px] mx-auto">
       <div className="flex flex-col gap-6 lg:gap-8">

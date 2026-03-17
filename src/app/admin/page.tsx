@@ -46,6 +46,7 @@ function normalizeContent(partial: unknown): SiteContent {
     rooftopExperience: { ...defaultContent.rooftopExperience, ...(p.rooftopExperience ?? {}) },
     socialProof: { ...defaultContent.socialProof, ...(p.socialProof ?? {}), reviews: (p.socialProof?.reviews ?? defaultContent.socialProof.reviews) },
     location: { ...defaultContent.location, ...(p.location ?? {}) },
+    gallery: { ...defaultContent.gallery, ...(p.gallery ?? {}), images: (p.gallery?.images ?? defaultContent.gallery.images) },
     highlights: (p.highlights ?? defaultContent.highlights),
     signatureDishes: (p.signatureDishes ?? defaultContent.signatureDishes),
     homeMenuGroups: (p.homeMenuGroups ?? defaultContent.homeMenuGroups),

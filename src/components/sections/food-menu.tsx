@@ -1,56 +1,22 @@
 import { Flame, Drumstick, EggFried, UtensilsCrossed } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 import { AnimateIn } from "@/components/animate-in";
+import { defaultContent, type MenuGroup as ContentMenuGroup, type SiteContent } from "@/lib/site-content-shared";
 
-interface MenuItem {
-  name: string;
-  price: string;
-}
-
-interface MenuGroup {
+interface MenuGroupView {
   icon: LucideIcon;
   title: string;
-  items: MenuItem[];
+  items: ContentMenuGroup["items"];
 }
 
-const menuGroups: MenuGroup[] = [
-  {
-    icon: Flame,
-    title: "Grilled & Main",
-    items: [
-      { name: "Tuna Panga (300–500 g)", price: "₱169" },
-      { name: "Tuna Panga (500–800 g)", price: "₱240" },
-      { name: "Grilled Pork Belly", price: "₱120" },
-      { name: "Chicken Inasal", price: "₱120" },
-    ],
-  },
-  {
-    icon: Drumstick,
-    title: "Sisig & Chicken",
-    items: [
-      { name: "Sisig with Rice", price: "₱99" },
-      { name: "Sisig Platter", price: "₱159" },
-      { name: "Chicken Platter", price: "₱249" },
-      { name: "Fries Chicken", price: "₱129" },
-      { name: "Chicken Bufafa", price: "₱99" },
-      { name: "Chicken Pamasin", price: "₱99" },
-      { name: "Chicken Creamy Mushroom", price: "₱99" },
-    ],
-  },
-  {
-    icon: EggFried,
-    title: "Silog Meals",
-    items: [
-      { name: "Hamsilog", price: "₱79" },
-      { name: "Longsilog", price: "₱79" },
-      { name: "Cornsilog", price: "₱89" },
-      { name: "Pattysilog", price: "₱69" },
-      { name: "Hotsilog", price: "₱59" },
-    ],
-  },
-];
+const ICON_MAP: Record<string, LucideIcon> = {
+  Flame,
+  Drumstick,
+  EggFried,
+  UtensilsCrossed,
+};
 
-function MenuGroupCard({ icon: Icon, title, items }: MenuGroup) {
+function MenuGroupCard({ icon: Icon, title, items }: MenuGroupView) {
   return (
     <div className="flex flex-col bg-card rounded-2xl lg:rounded-[20px] shadow-card overflow-hidden">
       <div className="flex items-center gap-3 px-4 sm:px-6 py-4 sm:py-5 bg-gradient-to-r from-[#4A2C1F] to-[#2D1A12]">
@@ -78,7 +44,7 @@ function MenuGroupCard({ icon: Icon, title, items }: MenuGroup) {
   );
 }
 
-export function FoodMenu() {
+export function FoodMenu({ groups = defaultContent.homeMenuGroups }: { groups?: SiteContent["homeMenuGroups"] }) {
   return (
     <section id="menu" className="py-12 lg:py-20 px-5 sm:px-8 lg:px-[120px] max-w-[1440px] mx-auto">
       <div className="flex flex-col items-center gap-6 lg:gap-8">
@@ -96,11 +62,14 @@ export function FoodMenu() {
           </div>
         </AnimateIn>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 w-full">
-          {menuGroups.map((g, i) => (
-            <AnimateIn key={g.title} delay={i * 150}>
-              <MenuGroupCard {...g} />
-            </AnimateIn>
-          ))}
+          {groups.map((g, i) => {
+            const Icon = ICON_MAP[g.icon] ?? UtensilsCrossed;
+            return (
+              <AnimateIn key={g.title} delay={i * 150}>
+                <MenuGroupCard icon={Icon} title={g.title} items={g.items} />
+              </AnimateIn>
+            );
+          })}
         </div>
       </div>
     </section>

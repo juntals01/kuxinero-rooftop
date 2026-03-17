@@ -3,8 +3,9 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { AnimateIn } from "@/components/animate-in";
+import { defaultContent, type SiteContent } from "@/lib/site-content-shared";
 
-export function RooftopExperience() {
+export function RooftopExperience({ rooftop = defaultContent.rooftopExperience }: { rooftop?: SiteContent["rooftopExperience"] }) {
   const sectionRef = useRef<HTMLElement>(null);
   const [offset, setOffset] = useState(0);
 
@@ -42,12 +43,12 @@ export function RooftopExperience() {
       <div className="relative z-10 flex flex-col items-center gap-3 sm:gap-4 text-center px-5 sm:px-8 lg:px-[120px]">
         <AnimateIn>
           <h2 className="text-2xl sm:text-4xl lg:text-[56px] font-extrabold tracking-tight text-white drop-shadow-lg leading-tight">
-            Dine Under the Cebu Night Sky
+            {rooftop.heading}
           </h2>
         </AnimateIn>
         <AnimateIn delay={200}>
           <p className="text-sm sm:text-lg lg:text-xl font-medium text-white/[0.87] max-w-[600px] leading-relaxed">
-            Warm lights, cool breeze, unforgettable nights.
+            {rooftop.subheading}
           </p>
         </AnimateIn>
       </div>

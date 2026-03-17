@@ -84,6 +84,14 @@ export interface SiteContent {
     mapEmbedUrl: string;
     mapsLink: string;
   };
+  gallery: {
+    images: Array<{
+      src: string;
+      alt: string;
+      category: string;
+      height: number;
+    }>;
+  };
 }
 
 export const defaultContent: SiteContent = {
@@ -184,5 +192,18 @@ export const defaultContent: SiteContent = {
     address: "Along St. Joseph the Worker Parish Church, Cebu South Road, Purok Lopez Jaena, Barangay Tabunoc, Talisay, Philippines",
     mapEmbedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3925.6!2d123.8!3d10.25!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDE1JzAwLjAiTiAxMjPCsDQ4JzAwLjAiRQ!5e0!3m2!1sen!2sph!4v1",
     mapsLink: "https://maps.google.com",
+  },
+  gallery: {
+    images: [
+      { src: "/images/building.jpg", alt: "Kuxinero Rooftop building", category: "Rooftop", height: 260 },
+      { src: "/images/sisig.jpg", alt: "Sizzling Sisig", category: "Food", height: 180 },
+      { src: "/images/cozy-people.jpg", alt: "Guests dining on rooftop", category: "Rooftop", height: 180 },
+      { src: "/images/tables and chairs.jpg", alt: "Tables and chairs setup", category: "Rooftop", height: 260 },
+      { src: "/images/cozy-people-1.jpg", alt: "Cozy rooftop evening", category: "Events", height: 220 },
+      { src: "/images/cozy-people-2.jpg", alt: "Friends at Kuxinero", category: "Events", height: 220 },
+      { src: "/images/panga.jpg", alt: "Grilled Tuna Panga", category: "Food", height: 220 },
+      { src: "/images/pork-belly.jpg", alt: "Grilled Pork Belly", category: "Food", height: 200 },
+      { src: "/images/chicken-bufafa.jpg", alt: "Chicken Bufafa", category: "Food", height: 240 },
+    ],
   },
 };

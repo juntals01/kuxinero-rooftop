@@ -4,8 +4,25 @@ import { Facebook, MapPin, Phone } from "lucide-react";
 import Link from "next/link";
 import { PageNavbar } from "@/components/sections/page-navbar";
 import { Footer } from "@/components/sections/footer";
+import { useEffect, useState } from "react";
+import type { SiteContent } from "@/lib/site-content-shared";
 
 export default function ContactPage() {
+  const [content, setContent] = useState<SiteContent | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      const res = await fetch("/api/content");
+      if (!res.ok) return;
+      const data = (await res.json()) as SiteContent;
+      if (!cancelled) setContent(data);
+    })();
+    return () => { cancelled = true; };
+  }, []);
+
+  const fb = content?.general.facebookUrl ?? "https://www.facebook.com/profile.php?id=61587210681219";
+  const maps = content?.location.mapsLink ?? "https://maps.google.com";
   return (
     <main className="flex flex-col min-h-screen bg-background">
       <PageNavbar />
@@ -83,7 +100,7 @@ export default function ContactPage() {
             </h2>
 
             <Link
-              href="https://www.facebook.com/profile.php?id=61587210681219"
+              href={fb}
               target="_blank"
               className="flex items-center gap-3.5 p-5 bg-card rounded-2xl shadow-card hover:shadow-card-accent transition-shadow"
             >
@@ -94,7 +111,7 @@ export default function ContactPage() {
             </Link>
 
             <Link
-              href="https://maps.google.com"
+              href={maps}
               target="_blank"
               className="flex items-center gap-3.5 p-5 bg-card rounded-2xl shadow-card hover:shadow-card-accent transition-shadow"
             >
