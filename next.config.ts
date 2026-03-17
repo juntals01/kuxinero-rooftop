@@ -10,6 +10,12 @@ const nextConfig: NextConfig = {
         port: "9000",
         pathname: "/**",
       },
+      // Production MinIO bucket on Railway
+      {
+        protocol: "https",
+        hostname: "bucket-production-b1dc.up.railway.app",
+        pathname: "/**",
+      },
     ],
   },
 };
