@@ -1,0 +1,323 @@
+{
+  "general": {
+    "brandName": "Kuxinero Rooftopp",
+    "description": "Affordable, tasty rooftop dining experience for the Cebuano community.",
+    "facebookUrl": "https://www.facebook.com/profile.php?id=61587210681219",
+    "phone": "",
+    "address": "Along St. Joseph the Worker Parish Church, Cebu South Road, Tabunoc, Talisay, Cebu"
+  },
+  "hero": {
+    "title1": "Rooftop Vibes.",
+    "title2": "Real Filipino Flavor.",
+    "subtitle": "Grilled Tuna • Pork Belly • Sizzling Sisig • Silogan Meals",
+    "description": "Affordable meals for the Cebuano community.",
+    "location": "Tabunok, Talisay • Beside St. Joseph the Worker Parish Church",
+    "dishes": [
+      {
+        "name": "Grilled Tuna Panga",
+        "price": "₱169",
+        "image": "/images/panga.jpg",
+        "badge": "Best Seller"
+      },
+      {
+        "name": "Grilled Pork Belly",
+        "price": "₱120",
+        "image": "/images/pork-belly.jpg",
+        "badge": ""
+      },
+      {
+        "name": "Sizzling Sisig",
+        "price": "₱99",
+        "image": "/images/sisig.jpg",
+        "badge": "Best Seller"
+      },
+      {
+        "name": "Chicken Bufafa",
+        "price": "₱99",
+        "image": "/images/chicken-bufafa.jpg",
+        "badge": ""
+      },
+      {
+        "name": "Silogan Meals",
+        "price": "from ₱59",
+        "image": "/images/menu.jpg",
+        "badge": ""
+      }
+    ]
+  },
+  "highlights": [
+    {
+      "icon": "MoonStar",
+      "title": "Rooftop Night Vibes",
+      "description": "Dine under the stars with cozy warm lighting and a cool Cebu breeze."
+    },
+    {
+      "icon": "Wallet",
+      "title": "Affordable Silogan & Grilled Favorites",
+      "description": "Great food that won't break the bank. Meals starting at budget-friendly prices."
+    },
+    {
+      "icon": "Users",
+      "title": "Perfect for Barkada & Family",
+      "description": "Spacious rooftop setting perfect for group dinners, celebrations, and hangouts."
+    }
+  ],
+  "signatureDishes": [
+    {
+      "name": "Grilled Tuna Panga",
+      "price": "₱169",
+      "description": "Fresh tuna jaw grilled over charcoal, served sizzling with soy-calamansi dip.",
+      "image": "/images/panga.jpg",
+      "badge": "Best Seller"
+    },
+    {
+      "name": "Grilled Pork Belly",
+      "price": "₱120",
+      "description": "Thick-cut pork belly, smoky and tender, paired with vinegar dip and rice.",
+      "image": "/images/pork-belly.jpg",
+      "badge": ""
+    },
+    {
+      "name": "Sizzling Sisig",
+      "price": "₱99",
+      "description": "Chopped pork face seasoned with calamansi and chili, topped with egg on a hot plate.",
+      "image": "/images/sisig.jpg",
+      "badge": "Best Seller"
+    },
+    {
+      "name": "Chicken Bufafa",
+      "price": "₱99",
+      "description": "Kuxinero's signature crispy chicken tossed in a tangy buffalo-inspired sauce.",
+      "image": "/images/chicken-bufafa.jpg",
+      "badge": ""
+    },
+    {
+      "name": "Silogan Meals",
+      "price": "from ₱59",
+      "description": "Classic Filipino breakfast meals — egg, garlic rice, and your choice of viand.",
+      "image": "/images/menu.jpg",
+      "badge": ""
+    }
+  ],
+  "homeMenuGroups": [
+    {
+      "icon": "Flame",
+      "title": "Grilled & Main",
+      "items": [
+        {
+          "name": "Tuna Panga (300–500 g)",
+          "price": "₱169"
+        },
+        {
+          "name": "Tuna Panga (500–800 g)",
+          "price": "₱240"
+        },
+        {
+          "name": "Grilled Pork Belly",
+          "price": "₱120"
+        },
+        {
+          "name": "Chicken Inasal",
+          "price": "₱120"
+        }
+      ]
+    },
+    {
+      "icon": "Drumstick",
+      "title": "Sisig & Chicken",
+      "items": [
+        {
+          "name": "Sisig with Rice",
+          "price": "₱99"
+        },
+        {
+          "name": "Sisig Platter",
+          "price": "₱159"
+        },
+        {
+          "name": "Chicken Platter",
+          "price": "₱249"
+        },
+        {
+          "name": "Fries Chicken",
+          "price": "₱129"
+        },
+        {
+          "name": "Chicken Bufafa",
+          "price": "₱99"
+        },
+        {
+          "name": "Chicken Pamasin",
+          "price": "₱99"
+        },
+        {
+          "name": "Chicken Creamy Mushroom",
+          "price": "₱99"
+        }
+      ]
+    },
+    {
+      "icon": "EggFried",
+      "title": "Silog Meals",
+      "items": [
+        {
+          "name": "Hamsilog",
+          "price": "₱79"
+        },
+        {
+          "name": "Longsilog",
+          "price": "₱79"
+        },
+        {
+          "name": "Cornsilog",
+          "price": "₱89"
+        },
+        {
+          "name": "Pattysilog",
+          "price": "₱69"
+        },
+        {
+          "name": "Hotsilog",
+          "price": "₱59"
+        }
+      ]
+    }
+  ],
+  "menuPageItems": [
+    {
+      "name": "Grilled Tuna Panga",
+      "description": "Fresh catch, charcoal-grilled to perfection. Served with rice.",
+      "price": "₱250",
+      "image": "/images/panga.jpg",
+      "category": "Grilled",
+      "tags": [
+        "Grilled"
+      ]
+    },
+    {
+      "name": "Grilled Pork Belly",
+      "description": "Juicy, crispy, and a Filipino crowd favorite. Best paired with rice.",
+      "price": "₱220",
+      "image": "/images/pork-belly.jpg",
+      "category": "Grilled",
+      "tags": [
+        "Grilled",
+        "Best Seller"
+      ]
+    },
+    {
+      "name": "Sizzling Pork Sisig",
+      "description": "Sizzling hot on a plate, a classic Pinoy pulutan. Perfect with beer.",
+      "price": "₱200",
+      "image": "/images/sisig.jpg",
+      "category": "Sizzling",
+      "tags": [
+        "Sizzling",
+        "Pulutan"
+      ]
+    },
+    {
+      "name": "Chicken Bufafa",
+      "description": "Tender chicken with a unique blend of local spices and herbs.",
+      "price": "₱180",
+      "image": "/images/chicken-bufafa.jpg",
+      "category": "Chicken",
+      "tags": [
+        "Chicken"
+      ]
+    },
+    {
+      "name": "Silogan Meals",
+      "description": "Hearty silog combos: sinangag, itlog, and your choice of ulam.",
+      "price": "₱150",
+      "image": "/images/menu.jpg",
+      "category": "Silogan",
+      "tags": [
+        "Silogan"
+      ]
+    },
+    {
+      "name": "Chicken Inasal",
+      "description": "Marinated and grilled chicken, Bacolod style with annatto oil.",
+      "price": "₱120",
+      "image": "/images/chicken-bufafa.jpg",
+      "category": "Grilled",
+      "tags": [
+        "Grilled",
+        "Chicken"
+      ]
+    },
+    {
+      "name": "Sisig with Rice",
+      "description": "Classic sisig served hot with garlic rice on the side.",
+      "price": "₱99",
+      "image": "/images/sisig.jpg",
+      "category": "Sizzling",
+      "tags": [
+        "Sizzling"
+      ]
+    },
+    {
+      "name": "Hamsilog",
+      "description": "Ham, sinangag, and itlog — a timeless Filipino breakfast combo.",
+      "price": "₱79",
+      "image": "/images/menu.jpg",
+      "category": "Silogan",
+      "tags": [
+        "Silogan"
+      ]
+    },
+    {
+      "name": "Longsilog",
+      "description": "Sweet longganisa paired with garlic rice and fried egg.",
+      "price": "₱79",
+      "image": "/images/menu.jpg",
+      "category": "Silogan",
+      "tags": [
+        "Silogan"
+      ]
+    },
+    {
+      "name": "Chicken Pamasin",
+      "description": "Crispy chicken tossed in a savory-sour parmesan glaze.",
+      "price": "₱99",
+      "image": "/images/chicken-bufafa.jpg",
+      "category": "Chicken",
+      "tags": [
+        "Chicken"
+      ]
+    }
+  ],
+  "rooftopExperience": {
+    "heading": "Dine Under the Cebu Night Sky",
+    "subheading": "Warm lights, cool breeze, unforgettable nights."
+  },
+  "socialProof": {
+    "rating": 3.7,
+    "ratingLabel": "Based on Facebook reviews",
+    "reviews": [
+      {
+        "name": "Maria C.",
+        "text": "Best sisig in Talisay! The rooftop vibe is so chill and affordable. We always come back with our barkada.",
+        "rating": 4
+      },
+      {
+        "name": "John Rey D.",
+        "text": "Grilled tuna panga is a must-try. Huge serving for the price. Kids loved the silogan meals too!",
+        "rating": 4
+      },
+      {
+        "name": "Cherry L.",
+        "text": "Love the ambiance at night. Very relaxing with great food. The chicken bufafa is our favorite!",
+        "rating": 3
+      }
+    ]
+  },
+  "location": {
+    "heading": "Visit Us",
+    "subheading": "Easy access from Tabunok Flyover",
+    "address": "Along St. Joseph the Worker Parish Church, Cebu South Road, Purok Lopez Jaena, Barangay Tabunoc, Talisay, Philippines",
+    "mapEmbedUrl": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3925.6!2d123.8!3d10.25!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTDCsDE1JzAwLjAiTiAxMjPCsDQ4JzAwLjAiRQ!5e0!3m2!1sen!2sph!4v1",
+    "mapsLink": "https://maps.google.com"
+  }
+}

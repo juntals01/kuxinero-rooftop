@@ -3,4 +3,7 @@
 node_modules/
 .next/
 package-lock.json
+.env.local
+tsconfig.tsbuildinfo
+CLAUDE.md
 docs/images/generated-*
