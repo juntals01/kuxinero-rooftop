@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -517,6 +517,34 @@ export default function AdminPage() {
   const [loginError, setLoginError]     = useState("");
   const [loading, setLoading]           = useState(false);
 
+  // Restore session on reload.
+  useEffect(() => {
+    const stored = typeof window !== "undefined" ? window.localStorage.getItem("kuxinero_admin_jwt") : null;
+    if (!stored) return;
+
+    let cancelled = false;
+    (async () => {
+      setLoading(true);
+      try {
+        const contentRes = await fetch("/api/admin/content", {
+          headers: { Authorization: `Bearer ${stored}` },
+        });
+        if (!contentRes.ok) throw new Error("unauthorized");
+        const data = await contentRes.json();
+        if (cancelled) return;
+        setJwt(stored);
+        setContent(normalizeContent(data));
+        setAuthenticated(true);
+      } catch {
+        window.localStorage.removeItem("kuxinero_admin_jwt");
+      } finally {
+        if (!cancelled) setLoading(false);
+      }
+    })();
+
+    return () => { cancelled = true; };
+  }, []);
+
   const login = async () => {
     if (!email || !password) return;
     setLoading(true);
@@ -541,6 +569,7 @@ export default function AdminPage() {
       const data = contentRes.ok ? await contentRes.json() : {};
 
       setJwt(accessToken);
+      window.localStorage.setItem("kuxinero_admin_jwt", accessToken);
       setContent(normalizeContent(data));
       setAuthenticated(true);
     } catch {
@@ -566,6 +595,18 @@ export default function AdminPage() {
       setSaving(false);
       setTimeout(() => setSaveStatus("idle"), 3000);
     }
+  };
+
+  const logout = () => {
+    setAuthenticated(false);
+    setJwt("");
+    setContent(null);
+    setEmail("");
+    setPassword("");
+    setActiveSection("general");
+    setSaveStatus("idle");
+    setLoginError("");
+    if (typeof window !== "undefined") window.localStorage.removeItem("kuxinero_admin_jwt");
   };
 
   // ── Login screen ────────────────────────────────────────────────────────────
@@ -652,7 +693,7 @@ export default function AdminPage() {
         </nav>
         <div className="p-3 border-t border-neutral-800">
           <button
-            onClick={() => { setAuthenticated(false); setJwt(""); setContent(null); }}
+            onClick={logout}
             className="w-full flex items-center gap-2 px-3 py-2 rounded-lg text-neutral-600 hover:text-white hover:bg-neutral-800 text-sm transition-colors"
           >
             <LogOut className="w-3.5 h-3.5" />
